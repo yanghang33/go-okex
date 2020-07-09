@@ -22,6 +22,8 @@ const (
 	ACCOUNT_WITHRAWAL_HISTORY          = "/api/account/v3/withdrawal/history"
 	ACCOUNT_WITHRAWAL_HISTORY_CURRENCY = "/api/account/v3/withdrawal/history/{currency}"
 	ACCOUNT_TRANSFER                   = "/api/account/v3/transfer"
+	ACCOUNT_ASSET_VALUATION            = "/api/account/v3/asset-valuation"
+	SUB_ACCOUNT_INFO                   = "/api/account/v3/sub-account"
 
 	FUTURES_RATE                          = "/api/futures/v3/rate"
 	FUTURES_INSTRUMENTS                   = "/api/futures/v3/instruments"

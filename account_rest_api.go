@@ -189,6 +189,57 @@ func (client *Client) GetAccountLeger(optionalParams *map[string]string) (*[]map
 }
 
 /*
+请求示例
+GET /api/account/v3/asset-valuation?account_type=1&valuation_currency=btc
+*/
+func (client *Client) GetAssetValuation(optionalParams *map[string]string) (*map[string]interface{}, error) {
+
+	r := map[string]interface{}{}
+
+	assetInfo := map[string]interface{}{}
+
+	path := ACCOUNT_ASSET_VALUATION
+	params := "?"
+
+	for k, v := range *optionalParams {
+		if params != "?" {
+			params = params + "&" + k + "=" + v
+		} else {
+			params = params + k + "=" + v
+		}
+	}
+
+	if params != "?" {
+		path = path + params
+	}
+
+	if _, err := client.Request(GET, path, assetInfo, &r); err != nil {
+		return nil, err
+	}
+
+	return &r, nil
+}
+
+/*
+请求示例
+GET /api/account/v3/sub-account?sub-account=Test
+*/
+func (client *Client) GetSubAccountInfo(subAccount string) (*map[string]interface{}, error) {
+
+	r := map[string]interface{}{}
+
+	assetInfo := map[string]interface{}{}
+
+	path := SUB_ACCOUNT_INFO + "?sub-account=" + subAccount
+
+	if _, err := client.Request(GET, path, assetInfo, &r); err != nil {
+		return nil, err
+	}
+
+	return &r, nil
+}
+
+/*
 提币
 提币到OKCoin国际站账户，OKEx账户或数字货币地址。
 

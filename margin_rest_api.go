@@ -236,7 +236,7 @@ func (client *Client) GetMarginFills(instrumentId, orderId string, optionalParam
 
 	fullParams := NewParams()
 	fullParams["instrument_id"] = instrumentId
-	fullParams["order_id"] = orderId
+	// fullParams["order_id"] = orderId
 
 	if optionalParams != nil && len(*optionalParams) > 0 {
 		for k, v := range *optionalParams {
